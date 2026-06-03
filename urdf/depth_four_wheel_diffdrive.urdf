@@ -1,0 +1,410 @@
+<?xml version="1.0"?>
+
+<robot name="differential_drive_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<link name="dummy">
+</link>
+<joint name="dummy_joint" type="fixed">
+    <parent link="dummy"/>
+    <child link="body_link"/>
+</joint>
+
+
+<link name="body_link">
+    <visual>
+        <geometry>
+            <box size="1 0.6 0.3" />
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+
+    <collision>
+        <geometry>
+            <box size="1 0.6 0.3" />
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>   
+
+    </collision>
+
+    <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="487.8"/>
+        <inertia
+        ixx="18.29"
+        ixy="0"
+        ixz="0"
+        iyy="44.30"
+        iyz="0"
+        izz="55.28"/>
+    </inertial>
+</link>
+
+
+<joint name="wheel1_joint" type="continuous">
+    <parent link="body_link"/>
+    <child link="wheel1_link"/>
+    <origin xyz="-0.32 -0.35 -0.1" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="1000" velocity="1000"/>
+    <dynamics damping="1.0" friction="1.0"/>
+</joint>
+
+<link name="wheel1_link">
+    <visual>
+        <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+        <geometry>
+            <cylinder length="0.1" radius="0.15"/>
+        </geometry>
+    </visual>
+
+    <collision>
+        <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+        <geometry>
+            <cylinder length="0.1" radius="0.15"/>
+        </geometry>
+    </collision>
+
+    <inertial>
+        <mass value="19.1558612053"/>
+        <inertia
+            ixx="0.12371"
+            iyy="0.12371"
+            izz="0.21550"
+            ixy="0"
+            ixz="0"
+            iyz="0"/>
+    </inertial>
+</link>
+
+<joint name="wheel2_joint" type="continuous">
+    <parent link="body_link"/>
+    <child link="wheel2_link"/>
+    <origin xyz="-0.32 0.35 -0.1" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="1000" velocity="1000"/>
+    <dynamics damping="1.0" friction="1.0"/>
+</joint>
+
+<link name="wheel2_link">
+    <visual>
+        <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+        <geometry>
+            <cylinder length="0.1" radius="0.15"/>
+        </geometry>
+    </visual>
+
+    <collision>
+        <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+        <geometry>
+            <cylinder length="0.1" radius="0.15"/>
+        </geometry>
+    </collision>
+
+    <inertial>
+        <mass value="19.1558612053"/>
+        <inertia
+            ixx="0.12371"
+            iyy="0.12371"
+            izz="0.21550"
+            ixy="0"
+            ixz="0"
+            iyz="0"/>
+    </inertial>
+</link>
+
+<joint name="wheel3_joint" type="continuous">
+    <parent link="body_link"/>
+    <child link="wheel3_link"/>
+    <origin xyz="0.32 -0.35 -0.1" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="1000" velocity="1000"/>
+    <dynamics damping="1.0" friction="1.0"/>
+</joint>
+
+<link name="wheel3_link">
+    <visual>
+        <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+        <geometry>
+            <cylinder length="0.1" radius="0.15"/>
+        </geometry>
+    </visual>
+
+    <collision>
+        <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+        <geometry>
+            <cylinder length="0.1" radius="0.15"/>
+        </geometry>
+    </collision>
+
+    <inertial>
+        <mass value="19.1558612053"/>
+        <inertia
+            ixx="0.12371"
+            iyy="0.12371"
+            izz="0.21550"
+            ixy="0"
+            ixz="0"
+            iyz="0"/>
+    </inertial>
+</link>
+
+<joint name="wheel4_joint" type="continuous">
+    <parent link="body_link"/>
+    <child link="wheel4_link"/>
+    <origin xyz="0.32 0.35 -0.1" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="1000" velocity="1000"/>
+    <dynamics damping="1.0" friction="1.0"/>
+</joint>
+
+
+<link name="wheel4_link">
+    <visual>
+        <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+        <geometry>
+            <cylinder length="0.1" radius="0.15"/>
+        </geometry>
+    </visual>
+
+    <collision>
+        <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+        <geometry>
+            <cylinder length="0.1" radius="0.15"/>
+        </geometry>
+    </collision>
+
+    <inertial>
+        <mass value="19.1558612053"/>
+        <inertia
+            ixx="0.12371"
+            iyy="0.12371"
+            izz="0.21550"
+            ixy="0"
+            ixz="0"
+            iyz="0"/>
+    </inertial>
+</link>
+
+<!--
+<joint name="laser_joint" type="fixed">
+	<parent link="body_link"/>
+	<child link="laser_frame"/>
+	<origin xyz="0 0 0.175" rpy="0 0 0"/>
+</joint>
+
+<link name="laser_frame">
+    <visual>
+        <geometry>
+            <cylinder radius="0.05" length="0.075"/>
+        </geometry>
+        <material name="red"/>
+    </visual>
+    <collision>
+        <geometry>
+            <cylinder radius="0.05" length="0.04"/>
+        </geometry>
+    </collision>
+    
+    <inertial>
+	    <mass value="0.1"/>
+	    <inertia ixx="0.0001" iyy="0.0001" izz="0.0001"
+		     ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+
+</link>
+-->
+
+<gazebo reference="body_link">
+<mul1>1</mul1>
+<mul2>1</mul2>
+<material>Gazebo/Yellow</material>
+</gazebo>
+
+<gazebo reference="wheel1_link">
+<mul1>1</mul1>
+<mul2>0.4</mul2>
+</gazebo>
+
+<gazebo reference="wheel2_link">
+<mul1>1</mul1>
+<mul2>1</mul2>
+</gazebo>
+
+<gazebo reference="wheel3_link">
+<mul1>1</mul1>
+<mul2>1</mul2>
+</gazebo>
+
+<gazebo reference="wheel4_link">
+<mul1>1</mul1>
+<mul2>1</mul2>
+</gazebo>
+
+<joint name="camera_joint" type="fixed">
+    <parent link="body_link"/>
+    <child link="camera_link"/>
+    <origin xyz="0.1 0 0.275" rpy="0 0 0"/> 
+</joint>
+
+<link name="camera_link">
+    <visual>
+        <geometry>
+            <box size="0.025 0.1 0.025"/> </geometry>
+    </visual>
+    <collision>
+        <geometry>
+            <box size="0.025 0.09 0.025"/>
+        </geometry>
+    </collision>
+    <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.001" iyy="0.001" izz="0.001" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+</link>
+
+<joint name="camera_optical_joint" type="fixed">
+    <parent link="camera_link"/>
+    <child link="camera_link_optical"/>
+    <origin xyz="0 0 0" rpy="-1.571 0 -1.571"/>
+</joint>
+
+<link name="camera_link_optical"/>
+
+
+<gazebo reference="camera_link">
+    <sensor name="camera" type="depth">
+        <visualize>true</visualize>
+        <update_rate>30.0</update_rate>
+        <camera name="camera">
+            <horizontal_fov>1.5184</horizontal_fov> 
+            <image>
+                <width>848</width>
+                <height>480</height>
+            </image>
+            <clip>
+                <near>0.3</near> 
+                <far>6.0</far>   
+            </clip>
+        </camera>
+        
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+            <ros>
+                <namespace>/</namespace> 
+            </ros>
+            
+            <frame_name>camera_link_optical</frame_name> 
+            <min_depth>0.3</min_depth>
+            <max_depth>6.0</max_depth>
+        </plugin>
+    </sensor>
+</gazebo>
+
+<gazebo reference="camera_link">
+<material>Gazebo/Red</material>
+</gazebo>
+
+<!--
+<sensor name="laser" type="ray">
+    <pose> 0 0 0 0 0 0 </pose>
+    <visualize>true</visualize>
+    <update_rate>10</update_rate>
+    <ray>
+	    <scan>
+		<horizontal>
+		    <samples>360</samples>
+		    <min_angle>-3.14</min_angle>
+		    <max_angle>3.14</max_angle>
+		</horizontal>
+	    </scan>
+    <range>
+        <min>0.3</min>
+        <max>12</max>
+    </range> 
+    </ray>
+	<plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
+	    <ros>
+		<argument>~/out:=scan</argument>
+	    </ros>
+	    <output_type>sensor_msgs/LaserScan</output_type>
+	    <frame_name>laser_frame</frame_name>
+	</plugin>
+
+</sensor>
+</gazebo>
+-->
+<!-- Controller for 4-wheeled Robot -->
+<gazebo>
+<plugin name='front_drive' filename='libgazebo_ros_diff_drive.so'>
+    <!-- Pair1 -->
+    <left_joint>wheel4_joint</left_joint>
+    <right_joint>wheel3_joint</right_joint>
+    <!-- Kinematics -->
+    <wheel_separation>0.8</wheel_separation>
+    <wheel_diameter>0.3</wheel_diameter>
+    <!-- limits -->
+    <max_wheel_torque>1000</max_wheel_torque>
+    <max_wheel_acceleration>5.0</max_wheel_acceleration>
+    <!-- output -->
+    <publish_odom>true</publish_odom>
+    <publish_odom_tf>true</publish_odom_tf>
+    <publish_wheel_tf>true</publish_wheel_tf>
+
+    <odometry_frame>odom</odometry_frame> 
+    <robot_base_frame>dummy</robot_base_frame>
+
+</plugin>
+</gazebo>
+
+<gazebo>
+<plugin name='back_drive' filename='libgazebo_ros_diff_drive.so'>
+
+    <!-- Pair2 -->
+    <left_joint>wheel2_joint</left_joint>
+    <right_joint>wheel1_joint</right_joint>
+
+
+    <!-- Kinematics -->
+    <wheel_separation>0.8</wheel_separation>
+
+    <wheel_diameter>0.3</wheel_diameter>
+
+    <!-- limits -->
+    <max_wheel_torque>1000</max_wheel_torque>
+    <max_wheel_acceleration>5.0</max_wheel_acceleration>
+
+    <!-- output -->
+    <publish_odom>true</publish_odom>
+    <publish_odom_tf>true</publish_odom_tf>
+    <publish_wheel_tf>true</publish_wheel_tf>
+
+
+    <odometry_frame>odom</odometry_frame>
+    <robot_base_frame>dummy</robot_base_frame>
+
+</plugin>
+</gazebo>
+
+
+
+
+
+<!--<gazebo>
+<plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+  <alwaysOn>true</alwaysOn>
+  <updateRate>50.0</updateRate>
+  <bodyName>dummy</bodyName>
+  <topicName>odom</topicName>
+  <gaussianNoise>0.01</gaussianNoise>
+  <frameName>world</frameName>
+  <xyzOffsets>0 0 0</xyzOffsets>
+  <rpyOffsets>0 0 0</rpyOffsets>
+</plugin>
+</gazebo>
+-->
+
+
+
+
+
+</robot>
+
