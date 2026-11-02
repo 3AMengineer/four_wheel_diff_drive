@@ -9,7 +9,7 @@ def generate_launch_description():
 
     pkg_share = get_package_share_directory('four_wheel_diff_drive')
 
-    urdf_path = os.path.join(pkg_share, 'urdf', 'four_wheel_diffdrive.urdf')
+    urdf_path = os.path.join(pkg_share, 'urdf', 'depth_four_wheel_diffdrive.urdf')
 
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
